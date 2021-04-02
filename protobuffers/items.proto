@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package items;
+
+message Item {
+    int64 id = 1;
+    string name = 2;
+    string description = 3;
+    double price = 4;
+    repeated string images = 5;
+}
+
+message Items {
+    repeated Item items = 1;
+}
+
+message ItemID{
+    int64 id = 1;
+}
+
+message Void{}
+
+service ItemService {
+    rpc List(Void) returns(Items) {}
+    rpc ItemInfo(ItemID) returns(Item){}
+}
