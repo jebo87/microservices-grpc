@@ -12,7 +12,7 @@ func StartServer() {
 	grpcServer := grpc.NewServer()
 	protobuffers.RegisterItemServiceServer(grpcServer, &ItemServer{})
 
-	listener, err := net.Listen("tcp", "0.0.0.0:")
+	listener, err := net.Listen("tcp", "0.0.0.0:8080")
 
 	if err != nil {
 		panic(err)
